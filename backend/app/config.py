@@ -30,55 +30,47 @@ class Settings:
     # Runtime flags
     DEBUG: bool = _env_bool("SCENE_SORTER_DEBUG", False)
 
-    # Batch limits (routes/batch.py expects these)
+    # Batch limits
     MAX_FILES_PER_BATCH: int = _env_int("SCENE_SORTER_MAX_FILES_PER_BATCH", 50)
     MAX_FILE_SIZE_MB: int = _env_int("SCENE_SORTER_MAX_FILE_SIZE_MB", 10)
 
-    # Image preprocessing defaults
-    # Safer to store full size tuple for consistent use everywhere.
+    # Image preprocessing (must match training)
     IMAGE_SIZE: Tuple[int, int] = (224, 224)
 
-    # CORS (middleware/cors.py expects this)
+    # CORS
     @property
     def CORS_ALLOW_ORIGINS(self) -> List[str]:
         raw = os.getenv("SCENE_SORTER_CORS_ALLOW_ORIGINS", "http://localhost:3000")
         return [x.strip() for x in raw.split(",") if x.strip()]
 
-    # Repo root resolution
+    # Repo root
     @property
     def repo_root(self) -> Path:
-        """
-        backend/app/config.py -> parents[2] => backend/
-        backend/ -> parents[0] = backend, parents[1] = repo root
-        But we want repo root, not backend.
-        """
-        # config.py is at: <repo>/backend/app/config.py
-        # parents[0]=app, [1]=backend, [2]=repo root
+        # backend/app/config.py → repo root
         return Path(__file__).resolve().parents[2]
 
-    # Model / labels paths
+    # Model paths
     @property
     def model_path(self) -> Path:
         env = os.getenv("SCENE_SORTER_MODEL_PATH")
         if env:
             return Path(env).expanduser().resolve()
-        return (self.repo_root / "model" / "exported" / "best_finetuned_model.keras").resolve()
+        return (self.repo_root / "model" / "exported" / "best_finetuned_model.keras")
 
     @property
     def labels_path(self) -> Path:
         env = os.getenv("SCENE_SORTER_LABELS_PATH")
         if env:
             return Path(env).expanduser().resolve()
-        return (self.repo_root / "model" / "exported" / "labels.json").resolve()
+        return (self.repo_root / "model" / "exported" / "labels.json")
 
-    # Temp storage root
+    # Temp storage (repo root, git-ignored)
     @property
     def temp_root(self) -> Path:
         env = os.getenv("SCENE_SORTER_TEMP_ROOT")
         if env:
             return Path(env).expanduser().resolve()
-        # Keep temp under backend by default (clean + ignore in git)
-        return (self.repo_root / "backend" / ".scene_sorter_tmp").resolve()
+        return self.repo_root / ".scene_sorter_tmp"
 
 
 settings = Settings()

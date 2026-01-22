@@ -12,6 +12,7 @@ export default function Navbar() {
             <div className="font-semibold leading-tight">Scene Sorter</div>
             <div className="text-xs text-slate-400">
               Batch classify & auto-organize photos
+              made by @trilochan_sharma aka parnish
             </div>
           </div>
         </div>

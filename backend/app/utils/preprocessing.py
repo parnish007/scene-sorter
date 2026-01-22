@@ -46,3 +46,4 @@ def preprocess_pil_for_model(pil_img: Image.Image) -> np.ndarray:
     arr = arr / 255.0  # keep [0,1] here
 
     return arr
+

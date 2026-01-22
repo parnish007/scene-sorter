@@ -149,6 +149,7 @@ export default function HomePage() {
       </main>
 
       <footer className="container py-8 text-slate-400 text-sm">
+        BUILD BY : TRILOCHN SHARMA 
         Built with Next.js + FastAPI + TensorFlow. Designed for batch upload → folder sorting → ZIP download.
       </footer>
     </>
