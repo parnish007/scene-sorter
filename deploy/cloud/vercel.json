@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "YOUR_BACKEND_URL_HERE/$1" },
+
+    { "source": "/predict", "destination": "YOUR_BACKEND_URL_HERE/predict" },
+    { "source": "/predict/(.*)", "destination": "YOUR_BACKEND_URL_HERE/predict/$1" },
+
+    { "source": "/download/(.*)", "destination": "YOUR_BACKEND_URL_HERE/download/$1" },
+
+    { "source": "/health", "destination": "YOUR_BACKEND_URL_HERE/health" },
+    { "source": "/docs", "destination": "YOUR_BACKEND_URL_HERE/docs" },
+    { "source": "/openapi.json", "destination": "YOUR_BACKEND_URL_HERE/openapi.json" }
+  ]
+}

@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: scene-sorter-backend
+    ports:
+      - "8000:8000"
+    environment:
+      # Optional overrides (keep commented if not needed)
+      # - SCENE_SORTER_MODEL_PATH=/app/model/exported/best_finetuned_model.keras
+      # - SCENE_SORTER_LABELS_PATH=/app/model/exported/labels.json
+      # - SCENE_SORTER_TEMP_ROOT=/app/.scene_sorter_tmp
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Persist temp jobs (optional but recommended in dev)
+      - backend_tmp:/app/.scene_sorter_tmp
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    container_name: scene-sorter-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      # Frontend will call backend via docker network name `backend`
+      - NEXT_PUBLIC_API_BASE_URL=http://backend:8000
+    depends_on:
+      - backend
+
+volumes:
+  backend_tmp:

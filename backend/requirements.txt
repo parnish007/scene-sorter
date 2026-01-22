@@ -1,0 +1,36 @@
+# =========================
+# Core API
+# =========================
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+
+# =========================
+# File uploads & requests
+# =========================
+python-multipart>=0.0.9
+
+# =========================
+# Machine Learning
+# =========================
+tensorflow>=2.13.0
+numpy>=1.23.0
+
+# =========================
+# Image processing
+# =========================
+Pillow>=10.0.0
+
+# =========================
+# Data validation
+# =========================
+pydantic>=2.0.0
+
+# =========================
+# Testing (optional but recommended)
+# =========================
+pytest>=8.0.0
+httpx>=0.26.0
+typing-extensions>=4.9.0
+pytest-asyncio>=0.22.0
+pytest-mock>=3.10.0
+pytest-cov>=4.1.0

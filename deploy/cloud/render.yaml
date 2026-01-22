@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: scene-sorter-backend
+    env: docker
+    rootDir: backend
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      # Optional overrides:
+      # - key: SCENE_SORTER_MODEL_PATH
+      #   value: /app/model/exported/best_finetuned_model.keras
+      # - key: SCENE_SORTER_LABELS_PATH
+      #   value: /app/model/exported/labels.json
+
+  - type: web
+    name: scene-sorter-frontend
+    env: docker
+    rootDir: frontend
+    plan: free
+    autoDeploy: true
+    envVars:
+      # Replace with your Render backend URL after backend is deployed:
+      - key: NEXT_PUBLIC_API_BASE_URL
+        value: https://scene-sorter-backend.onrender.com

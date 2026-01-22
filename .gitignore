@@ -1,0 +1,28 @@
+# ===== Python =====
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# ===== Node =====
+node_modules/
+.next/
+dist/
+out/
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Logs =====
+*.log
+
+# ===== IDE =====
+.vscode/
+.idea/
+
+# ===== Temporary files =====
+*.tmp

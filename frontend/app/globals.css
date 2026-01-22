@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Base styles ---------- */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-950 text-slate-100 antialiased;
+}
+
+/* ---------- Scrollbar (nice touch) ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.3); /* slate-400 */
+  border-radius: 6px;
+}
+
+/* ---------- Utility tweaks ---------- */
+.container {
+  @apply max-w-6xl mx-auto px-4;
+}
