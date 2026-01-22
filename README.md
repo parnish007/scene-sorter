@@ -14,9 +14,12 @@ It is designed for **travelers, photographers, dataset curators, and AI engineer
 
 ## 🌍 Live Project
 
-- **Frontend (UI):** https://YOUR-FRONTEND-LINK  
-- **Backend API:** https://YOUR-BACKEND-LINK  
-- **Swagger Docs:** https://YOUR-BACKEND-LINK/docs  
+- **Frontend (UI):** https://-FRONTEND-LINK  (will upate soon when deployed) 
+
+- **Backend API:** https:-BACKEND-LINK  (will upate soon when deployed) 
+
+- **Swagger Docs:** https:/-BACKEND-LINK/docs 
+(will upate soon when deployed) 
 
 ---
 
